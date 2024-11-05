@@ -1,0 +1,16 @@
+{
+  "_checkout": "2022.6.3",
+  "_output_dir": "/Users/wolf/git",
+  "_repo_dir": "/Users/wolf/.cookiecutters/cookiecutter-hypermodern-python",
+  "_template": "gh:cjolowicz/cookiecutter-hypermodern-python",
+  "author": "Scott Wolf",
+  "copyright_year": "2024",
+  "development_status": "Development Status :: 1 - Planning",
+  "email": "swwolf@princeton.edu",
+  "friendly_name": "Chemoecology Tools",
+  "github_user": "wolfffff",
+  "license": "MIT",
+  "package_name": "chemoecology_tools",
+  "project_name": "chemoecology-tools",
+  "version": "0.0.0"
+}
