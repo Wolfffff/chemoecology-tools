@@ -31,6 +31,6 @@ html_static_path = ["_static"]
 autodoc_typehints = "description"
 
 # Notebook execution
-jupyter_execute_notebooks = "off"
+jupyter_execute_notebooks = "auto"
 
 exclude_patterns = ["jupyter_execute"]
