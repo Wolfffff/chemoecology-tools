@@ -1,10 +1,8 @@
 """Statistical analysis functions for chemical ecology data."""
 
-from typing import Optional
-
 import numpy as np
 import pandas as pd
-from scipy import stats
+from scipy import stats  # type: ignore
 
 from ..core.gcms_experiment import GCMSExperiment
 
@@ -12,7 +10,7 @@ from ..core.gcms_experiment import GCMSExperiment
 def calculate_enrichment_table(
     experiment: GCMSExperiment,
     group_column: str,
-    class_column: Optional[str] = None,
+    class_column: str | None = None,
     alpha: float = 0.05,
 ) -> pd.DataFrame:
     """Calculate enrichment statistics for chemical compounds.

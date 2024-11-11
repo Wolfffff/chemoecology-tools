@@ -1,7 +1,7 @@
 """Core analysis functions for dimensionality reduction and pattern detection."""
 
 import pandas as pd
-from sklearn.manifold import MDS
+from sklearn.manifold import MDS  # type: ignore
 
 from ..core.gcms_experiment import GCMSExperiment
 
@@ -27,5 +27,5 @@ def perform_nmds(
     nmds_coords = mds.fit_transform(experiment.get_abundance_matrix())
 
     return pd.DataFrame(
-        nmds_coords, columns=[f"NMDS{i+1}" for i in range(n_components)]
+        nmds_coords, columns=[f"NMDS{i + 1}" for i in range(n_components)]
     )

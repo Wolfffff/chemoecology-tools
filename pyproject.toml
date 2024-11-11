@@ -27,7 +27,10 @@ openpyxl = ">=3.1.2"
 h5py = ">=3.10.0"
 tqdm = ">=4.66.0"
 pubchempy = "^1.0.4"
-
+pyyaml = "^6.0.2"
+types-seaborn = "^0.13.2.20241003"
+types-pyyaml = "^6.0.12.20240917"
+pandas-stubs = "^2.2.3.241009"
 
 [tool.poetry.dev-dependencies]
 Pygments = ">=2.10.0"
@@ -47,7 +50,7 @@ pre-commit = ">=2.16.0"
 pre-commit-hooks = ">=4.1.0"
 pytest = ">=6.2.5"
 pyupgrade = ">=2.29.1"
-safety = ">=1.10.3"
+safety = ">=3.2.4"
 sphinx = ">=4.3.2"
 sphinx-autobuild = ">=2021.3.14"
 sphinx-click = ">=3.0.2"
@@ -55,8 +58,6 @@ typeguard = ">=2.13.3"
 xdoctest = {extras = ["colors"], version = ">=0.15.10"}
 myst-parser = {version = ">=0.16.1"}
 ipykernel = "^6.29.5"
-types-seaborn = "^0.13.2.20241003"
-types-pyyaml = "^6.0.12.20240917"
 poetry-plugin-export = "^1.8.0"
 
 [tool.poetry.scripts]

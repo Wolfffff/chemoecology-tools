@@ -5,6 +5,8 @@ from typing import Any
 import matplotlib.pyplot as plt
 import pandas as pd
 import seaborn as sns
+from matplotlib.axes import Axes
+from matplotlib.figure import Figure
 
 from ..core.gcms_experiment import GCMSExperiment
 
@@ -69,7 +71,7 @@ def setup_plotting_style() -> None:
 def create_figure(
     width: float = FIGURE_SETTINGS["default_width"],
     aspect_ratio: float = FIGURE_SETTINGS["golden_ratio"],
-) -> tuple[plt.Figure, plt.Axes]:
+) -> tuple[Figure, Axes]:
     """Create a new figure with specified dimensions.
 
     Args:
@@ -84,7 +86,7 @@ def create_figure(
     return fig, ax
 
 
-def style_nmds_plot(ax: plt.Axes, title: str, legend_title: str | None = None) -> None:
+def style_nmds_plot(ax: Axes, title: str, legend_title: str | None = None) -> None:
     """Apply consistent styling to NMDS plots.
 
     Args:
@@ -113,7 +115,7 @@ def plot_nmds(
     title: str = "NMDS Plot",
     width: float = FIGURE_SETTINGS["default_width"],
     aspect_ratio: float = FIGURE_SETTINGS["golden_ratio"],
-) -> plt.Figure:
+) -> Figure:
     """Create a beautifully styled NMDS plot for GCMS experiment data.
 
     Args:

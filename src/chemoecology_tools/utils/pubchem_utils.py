@@ -3,7 +3,7 @@
 from functools import lru_cache
 from typing import Any
 
-import pubchempy as pcp
+import pubchempy as pcp  # type: ignore
 
 
 @lru_cache(maxsize=1000)
