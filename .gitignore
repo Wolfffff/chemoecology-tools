@@ -9,3 +9,4 @@
 /src/*.egg-info/
 __pycache__/
 /build/
+docs/jupyter_execute/
