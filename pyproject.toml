@@ -59,6 +59,7 @@ xdoctest = {extras = ["colors"], version = ">=0.15.10"}
 myst-parser = {version = ">=0.16.1"}
 ipykernel = "^6.29.5"
 poetry-plugin-export = "^1.8.0"
+myst-nb = "^1.1.2"
 
 [tool.poetry.scripts]
 chemoecology-tools = "chemoecology_tools.__main__:main"
