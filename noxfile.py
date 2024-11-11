@@ -25,7 +25,7 @@ except ImportError:
 
 package = "chemoecology_tools"
 python_versions = ["3.10"]
-nox.needs_version = ">= 2024.04.15"
+nox.needs_version = ">= 2022.1.7"
 nox.options.sessions = (
     "pre-commit",
     "safety",
