@@ -31,7 +31,6 @@ html_static_path = ["_static"]
 autodoc_typehints = "description"
 
 # Notebook execution
-nb_execution_mode = "force"
-nb_execution_timeout = 300
+jupyter_execute_notebooks = "off"
 
 exclude_patterns = ["jupyter_execute"]
