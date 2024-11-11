@@ -289,25 +289,51 @@ class GCMSExperiment:
             self.chemical_metadata,
         )
 
-    def filter(self, mask: pd.Series) -> "GCMSExperiment":
-        """Filter experiment using boolean mask.
+    def filter(
+        self,
+        metadata_mask: pd.Series | None = None,
+        chemical_mask: pd.Series | None = None,
+    ) -> "GCMSExperiment":
+        """Filter experiment using boolean masks for metadata and/or chemicals.
 
         Args:
-            mask: Boolean Series from filtering operation
+            metadata_mask: Boolean Series for filtering metadata rows
+            chemical_mask: Boolean Series for filtering chemical columns
 
         Returns:
             New GCMSExperiment with filtered data
 
         Example:
-            # Filter by treatment and abundance threshold
-            mask = (exp.metadata_df["Treatment"] == "A") & \
-                (exp.abundance_df["Chemical1"] > 0.5)
-            filtered_exp = exp.filter(mask)
+            # Filter based on both metadata and chemicals
+            meta_mask = exp.metadata_df["Species"].isin(["ant", "bee"])
+            chem_mask = pd.Series([
+                exp.get_chemical_property(c, "class") == "terpene"
+                for c in exp.chemical_cols
+            ], index=exp.chemical_cols)
+
+            filtered_exp = exp.filter(
+                metadata_mask=meta_mask,
+                chemical_mask=chem_mask
+            )
         """
-        filtered_meta = self.metadata_df[mask]
-        filtered_abundance = self.abundance_df[
-            self.abundance_df[self.id_col].isin(filtered_meta[self.id_col])
-        ]
+        filtered_meta = self.metadata_df
+        filtered_abundance = self.abundance_df
+
+        # Apply metadata filtering
+        if metadata_mask is not None:
+            filtered_meta = filtered_meta[metadata_mask]
+            filtered_abundance = filtered_abundance[
+                filtered_abundance[self.id_col].isin(filtered_meta[self.id_col])
+            ]
+
+        # Apply chemical filtering
+        if chemical_mask is not None:
+            selected_chemicals = [
+                col
+                for col, include in chemical_mask.items()
+                if include and col in self.chemical_cols
+            ]
+            filtered_abundance = filtered_abundance[[self.id_col] + selected_chemicals]
 
         return GCMSExperiment(
             filtered_abundance,
