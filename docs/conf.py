@@ -1,4 +1,5 @@
 """Sphinx configuration."""
+
 project = "Chemoecology Tools"
 author = "Scott Wolf"
 copyright = "2024, Scott Wolf"
