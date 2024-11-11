@@ -1,9 +1,9 @@
 # Chemoecology Tools
 
-[![PyPI](https://img.shields.io/pypi/v/chemoecology-tools.svg)][pypi_]
-[![Status](https://img.shields.io/pypi/status/chemoecology-tools.svg)][status]
-[![Python Version](https://img.shields.io/pypi/pyversions/chemoecology-tools)][python version]
-[![License](https://img.shields.io/pypi/l/chemoecology-tools)][license]
+![PyPI](https://img.shields.io/pypi/v/chemoecology-tools.svg)
+![Status](https://img.shields.io/pypi/status/chemoecology-tools.svg)
+![Python Version](https://img.shields.io/pypi/pyversions/chemoecology-tools)
+![License](https://img.shields.io/pypi/l/chemoecology-tools)
 
 [![Read the documentation at https://chemoecology-tools.readthedocs.io/](https://img.shields.io/readthedocs/chemoecology-tools/latest.svg?label=Read%20the%20Docs)][read the docs]
 [![Tests](https://github.com/wolfffff/chemoecology-tools/workflows/Tests/badge.svg)][tests]
