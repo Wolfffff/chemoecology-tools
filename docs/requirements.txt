@@ -1,4 +1,3 @@
 furo
 sphinx
-sphinx-click
 myst_parser
