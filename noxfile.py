@@ -1,4 +1,5 @@
 """Nox sessions."""
+
 import os
 import shlex
 import shutil
@@ -23,8 +24,8 @@ except ImportError:
 
 
 package = "chemoecology_tools"
-python_versions = ["3.10", "3.9", "3.8", "3.7"]
-nox.needs_version = ">= 2021.6.6"
+python_versions = ["3.10"]
+nox.needs_version = ">= 2022.1.7"
 nox.options.sessions = (
     "pre-commit",
     "safety",
@@ -213,7 +214,7 @@ def docs_build(session: Session) -> None:
         args.insert(0, "--color")
 
     session.install(".")
-    session.install("sphinx", "sphinx-click", "furo", "myst-parser")
+    session.install("sphinx", "furo", "myst-parser")
 
     build_dir = Path("docs", "_build")
     if build_dir.exists():
@@ -227,7 +228,7 @@ def docs(session: Session) -> None:
     """Build and serve the documentation with live reloading on file changes."""
     args = session.posargs or ["--open-browser", "docs", "docs/_build"]
     session.install(".")
-    session.install("sphinx", "sphinx-autobuild", "sphinx-click", "furo", "myst-parser")
+    session.install("sphinx", "sphinx-autobuild", "furo", "myst-parser")
 
     build_dir = Path("docs", "_build")
     if build_dir.exists():

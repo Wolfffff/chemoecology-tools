@@ -21,53 +21,45 @@
 [pre-commit]: https://github.com/pre-commit/pre-commit
 [black]: https://github.com/psf/black
 
-## Features
+## ✨ Features
 
-- TODO
-
-## Requirements
-
-- TODO
+- Load and process GC-MS abundance data
+- Calculate chemical enrichment statistics
+- Perform multivariate analyses (NMDS, PCA)
+- Generate publication-ready visualizations
+- Integrate with PubChem for chemical metadata
 
 ## Installation
 
-You can install _Chemoecology Tools_ via [pip] from [PyPI]:
+You can install _Chemoecology Tools_ via [pip](https://pip.pypa.io/) from [PyPI](https://pypi.org/project/chemoecology-tools/) or from source.
 
 ```console
 $ pip install chemoecology-tools
 ```
 
-## Usage
+```console
+$ pip install git+https://github.com/wolfffff/chemoecology-tools.git
+```
 
-Please see the [Command-line Reference] for details.
+## Documentation
+
+Full documentation is available at [Read the Docs](https://chemoecology-tools.readthedocs.io/).
+
+- See also the example notebook at [example notebook](https://github.com/wolfffff/chemoecology-tools/blob/main/docs/notebooks/example.ipynb).
 
 ## Contributing
 
 Contributions are very welcome.
-To learn more, see the [Contributor Guide].
+To learn more, see the [Contributor Guide](https://github.com/wolfffff/chemoecology-tools/blob/main/CONTRIBUTING.md).
 
 ## License
 
-Distributed under the terms of the [MIT license][license],
+Distributed under the terms of the [MIT license](https://github.com/wolfffff/chemoecology-tools/blob/main/LICENSE),
 _Chemoecology Tools_ is free and open source software.
 
 ## Issues
 
 If you encounter any problems,
-please [file an issue] along with a detailed description.
-
-## Credits
-
-This project was generated from [@cjolowicz]'s [Hypermodern Python Cookiecutter] template.
-
-[@cjolowicz]: https://github.com/cjolowicz
-[pypi]: https://pypi.org/
-[hypermodern python cookiecutter]: https://github.com/cjolowicz/cookiecutter-hypermodern-python
-[file an issue]: https://github.com/wolfffff/chemoecology-tools/issues
-[pip]: https://pip.pypa.io/
+please [file an issue](https://github.com/wolfffff/chemoecology-tools/issues) along with a detailed description.
 
 <!-- github-only -->
-
-[license]: https://github.com/wolfffff/chemoecology-tools/blob/main/LICENSE
-[contributor guide]: https://github.com/wolfffff/chemoecology-tools/blob/main/CONTRIBUTING.md
-[command-line reference]: https://chemoecology-tools.readthedocs.io/en/latest/usage.html

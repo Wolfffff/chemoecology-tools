@@ -1,0 +1,85 @@
+# chemical_metadata.yaml
+Nonadecane:
+  class: "Alkane"
+Heneicosane:
+  class: "Alkane"
+Tricosane:
+  class: "Alkane"
+Pentacosane:
+  class: "Alkane"
+Heptacosane:
+  class: "Alkane"
+Octacosane:
+  class: "Alkane"
+Nonacosane:
+  class: "Alkane"
+Triacontane:
+  class: "Alkane"
+Tritriacontane:
+  class: "Alkane"
+Tricosene:
+  class: "Alkene"
+Pentacosene:
+  class: "Alkene"
+Docosene:
+  class: "Alkene"
+Hexacosene:
+  class: "Alkene"
+Heptacosene:
+  class: "Alkene"
+Nonacosene:
+  class: "Alkene"
+Pentatriacontene:
+  class: "Alkene"
+Heptatriacontene:
+  class: "Alkene"
+Octadecanal:
+  class: "Aldehyde"
+Eicosanal:
+  class: "Aldehyde"
+"Octadecadienoic Acid":
+  class: "Fatty Acid"
+Hexadecanolide:
+  class: "Lactone"
+Octadecanolide:
+  class: "Lactone"
+Octadecenolide:
+  class: "Lactone"
+Eicosanolide:
+  class: "Lactone"
+Eicosenolide:
+  class: "Lactone"
+Docosenolide:
+  class: "Lactone"
+Docosanolide:
+  class: "Lactone"
+Tetracosanolide:
+  class: "Lactone"
+Tetracosenolide:
+  class: "Lactone"
+Hexacosenolide:
+  class: "Lactone"
+Hexacosanolide:
+  class: "Lactone"
+"3-Methyl-3-Butenyl Docosanoate":
+  class: "Ester"
+"3-Methyl-3-Butenyl Tetracosanoate":
+  class: "Ester"
+"11-Methyltricosane":
+  class: "Methylalkane"
+"11/13-methylpentacosane?":
+  class: "Methylalkane"
+"Unknown RI2360":
+  class: "Unknown"
+"Unknown RI2496":
+  class: "Unknown"
+"Unknown RI2568":
+  class: "Unknown"
+"Unknown RI2620":
+  class: "Unknown"
+"Unknown RI2687":
+  class: "Unknown"
+"Unknown RI2739":
+  class: "Unknown"
+"Unknown RI2155":
+  class: "Unknown"
