@@ -4,7 +4,3 @@ myst_parser
 myst_nb
 sphinx-copybutton
 sphinx-design
-ipykernel
-jupyter-cache>=0.5
-nbclient
-nbformat>=5.0
