@@ -288,3 +288,31 @@ class GCMSExperiment:
             self.experiment_name,
             self.chemical_metadata,
         )
+
+    def filter(self, mask: pd.Series) -> "GCMSExperiment":
+        """Filter experiment using boolean mask.
+
+        Args:
+            mask: Boolean Series from filtering operation
+
+        Returns:
+            New GCMSExperiment with filtered data
+
+        Example:
+            # Filter by treatment and abundance threshold
+            mask = (exp.metadata_df["Treatment"] == "A") & \
+                (exp.abundance_df["Chemical1"] > 0.5)
+            filtered_exp = exp.filter(mask)
+        """
+        filtered_meta = self.metadata_df[mask]
+        filtered_abundance = self.abundance_df[
+            self.abundance_df[self.id_col].isin(filtered_meta[self.id_col])
+        ]
+
+        return GCMSExperiment(
+            filtered_abundance,
+            filtered_meta,
+            self.id_col,
+            self.experiment_name,
+            self.chemical_metadata,
+        )
