@@ -29,10 +29,10 @@ jobs:
 
     steps:
       - name: Check out the repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Set up Python ${{ matrix.python }}
-        uses: actions/setup-python@v3
+        uses: actions/setup-python@v5
         with:
           python-version: ${{ matrix.python }}
 
@@ -77,7 +77,7 @@ jobs:
           print("::set-output name=result::{}".format(result))
 
       - name: Restore pre-commit cache
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         if: matrix.session == 'pre-commit'
         with:
           path: ~/.cache/pre-commit
@@ -108,10 +108,10 @@ jobs:
     needs: tests
     steps:
       - name: Check out the repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Set up Python
-        uses: actions/setup-python@v3
+        uses: actions/setup-python@v5
         with:
           python-version: "3.10"
 
@@ -145,4 +145,4 @@ jobs:
           nox --session=coverage -- xml
 
       - name: Upload coverage report
-        uses: codecov/codecov-action@v3.1.0
+        uses: codecov/codecov-action@v4.6.0
