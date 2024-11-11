@@ -67,7 +67,7 @@ Hexacosanolide:
   class: "Ester"
 "11-Methyltricosane":
   class: "Methylalkane"
-"11/13-methylpentacosane?":
+"11/13-methylpentacosane":
   class: "Methylalkane"
 "Unknown RI2360":
   class: "Unknown"
