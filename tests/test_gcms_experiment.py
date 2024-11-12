@@ -3,7 +3,7 @@
 import pandas as pd
 from pandas import DataFrame
 
-from chemoecology_tools.core.gcms_experiment import GCMSExperiment
+from chemoecology_tools.core import GCMSExperiment
 
 
 def test_basic_gcms_experiment() -> None:

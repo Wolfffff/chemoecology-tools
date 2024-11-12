@@ -3,14 +3,14 @@
 from typing import Any
 
 import pandas as pd
-import skbio.stats.composition as composition
-from sklearn.decomposition import PCA
-from sklearn.discriminant_analysis import LinearDiscriminantAnalysis
-from sklearn.ensemble import RandomForestClassifier
+import skbio.stats.composition as composition  # type: ignore
+from sklearn.decomposition import PCA  # type: ignore
+from sklearn.discriminant_analysis import LinearDiscriminantAnalysis  # type: ignore
+from sklearn.ensemble import RandomForestClassifier  # type: ignore
 from sklearn.manifold import MDS  # type: ignore
-from sklearn.metrics import classification_report
-from sklearn.model_selection import train_test_split
-from sklearn.preprocessing import StandardScaler
+from sklearn.metrics import classification_report  # type: ignore
+from sklearn.model_selection import train_test_split  # type: ignore
+from sklearn.preprocessing import StandardScaler  # type: ignore
 
 from ..core.gcms_experiment import GCMSExperiment
 
