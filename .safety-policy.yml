@@ -39,10 +39,6 @@ security-updates:
       - patch
 
 installation:
-  allow:
-    packages: []
-    vulnerabilities: {}
-
   deny:
     packages:
       warning-on-any-of:
