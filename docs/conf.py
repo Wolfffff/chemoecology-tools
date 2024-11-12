@@ -34,3 +34,5 @@ autodoc_typehints = "description"
 jupyter_execute_notebooks = "off"
 
 exclude_patterns = ["jupyter_execute"]
+
+# TODO: Add GitHub link to header
