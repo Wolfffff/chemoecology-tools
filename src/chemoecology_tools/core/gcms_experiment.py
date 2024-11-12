@@ -1,5 +1,7 @@
 """Container for GCMS experimental data and metadata."""
 
+from __future__ import annotations
+
 from pathlib import Path
 from typing import Any
 
@@ -59,7 +61,7 @@ class GCMSExperiment:
         id_col: str = "ID",
         filter_dict: dict[str, list[str]] | None = None,
         experiment_name: str | None = None,
-    ) -> "GCMSExperiment":
+    ) -> GCMSExperiment:
         """Create experiment from data files.
 
         Args:
@@ -141,7 +143,7 @@ class GCMSExperiment:
             self.metadata_df, self.abundance_df, on=self.id_col, how="inner"
         )
 
-    def filter_samples(self, criteria: dict[str, list[str]]) -> "GCMSExperiment":
+    def filter_samples(self, criteria: dict[str, list[str]]) -> GCMSExperiment:
         """Filter samples based on metadata criteria.
 
         Args:
@@ -241,7 +243,7 @@ class GCMSExperiment:
             f"{len(self.chemical_cols)} chemicals measured"
         )
 
-    def filter_trace_compounds(self, threshold: float = 0.005) -> "GCMSExperiment":
+    def filter_trace_compounds(self, threshold: float = 0.005) -> GCMSExperiment:
         """Filter out trace chemical amounts below threshold.
 
         Args:
@@ -269,7 +271,7 @@ class GCMSExperiment:
             self.chemical_metadata,
         )
 
-    def calculate_relative_abundance(self) -> "GCMSExperiment":
+    def calculate_relative_abundance(self) -> GCMSExperiment:
         """Calculate relative abundance of chemical compounds.
 
         Returns:
@@ -293,7 +295,7 @@ class GCMSExperiment:
         self,
         metadata_mask: pd.Series[bool] | None = None,
         chemical_mask: pd.Series[bool] | None = None,
-    ) -> "GCMSExperiment":
+    ) -> GCMSExperiment:
         """Filter experiment using boolean masks for metadata and/or chemicals.
 
         Args:
