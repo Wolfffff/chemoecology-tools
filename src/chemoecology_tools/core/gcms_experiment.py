@@ -291,8 +291,8 @@ class GCMSExperiment:
 
     def filter(
         self,
-        metadata_mask: pd.Series | None = None,
-        chemical_mask: pd.Series | None = None,
+        metadata_mask: pd.Series[bool] | None = None,
+        chemical_mask: pd.Series[bool] | None = None,
     ) -> "GCMSExperiment":
         """Filter experiment using boolean masks for metadata and/or chemicals.
 

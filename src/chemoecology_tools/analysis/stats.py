@@ -43,7 +43,6 @@ def calculate_enrichment_table(
             else None
         )
 
-        # Rest of the function remains the same until the end
         group_stats = {}
         for group in groups:
             values = data[data[group_column] == group][compound]
