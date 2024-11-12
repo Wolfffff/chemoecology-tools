@@ -31,6 +31,7 @@ pyyaml = "^6.0.2"
 types-seaborn = "^0.13.2.20241003"
 types-pyyaml = "^6.0.12.20240917"
 pandas-stubs = "^2.2.3.241009"
+scikit-bio = "^0.6.2"
 
 [tool.poetry.dev-dependencies]
 Pygments = ">=2.10.0"

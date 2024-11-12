@@ -75,11 +75,13 @@ def create_figure(
     """Create a new figure with specified dimensions.
 
     Args:
-        width: Figure width in inches
-        aspect_ratio: Height/width ratio
+        width: Figure width in inches. Defaults to FIGURE_SETTINGS["default_width"].
+        aspect_ratio: Height/width ratio. Defaults to FIGURE_SETTINGS["golden_ratio"].
 
     Returns:
-        tuple of (Figure, Axes) objects
+        A tuple containing:
+            - Figure: The matplotlib figure object
+            - Axes: The matplotlib axes object
     """
     height = width * aspect_ratio
     fig, ax = plt.subplots(figsize=(width, height))
@@ -90,9 +92,9 @@ def style_nmds_plot(ax: Axes, title: str, legend_title: str | None = None) -> No
     """Apply consistent styling to NMDS plots.
 
     Args:
-        ax: matplotlib axes object to style
-        title: Plot title
-        legend_title: Optional title for the legend
+        ax: Matplotlib axes object to style.
+        title: Plot title text.
+        legend_title: Optional title for the legend. Defaults to None.
     """
     ax.set_xlabel("NMDS1", fontsize=FONT_SETTINGS["label_size"], fontweight="bold")
     ax.set_ylabel("NMDS2", fontsize=FONT_SETTINGS["label_size"], fontweight="bold")
@@ -119,15 +121,18 @@ def plot_nmds(
     """Create a beautifully styled NMDS plot for GCMS experiment data.
 
     Args:
-        experiment: GCMSExperiment instance containing the data
-        nmds_coords: DataFrame containing NMDS coordinates (NMDS1, NMDS2)
-        group_col: Optional metadata column name to group/color points by
-        title: Plot title
-        width: Figure width in inches
-        aspect_ratio: Height/width ratio for the figure
+        experiment: GCMSExperiment instance containing the data.
+        nmds_coords: DataFrame containing NMDS coordinates (NMDS1, NMDS2).
+        group_col: Optional metadata column name to group/color points by.
+            Defaults to None.
+        title: Plot title. Defaults to "NMDS Plot".
+        width: Figure width in inches. Defaults to
+            FIGURE_SETTINGS["default_width"].
+        aspect_ratio: Height/width ratio for the figure.
+            Defaults to FIGURE_SETTINGS["golden_ratio"].
 
     Returns:
-        matplotlib Figure object containing the styled plot
+        Figure: Matplotlib Figure object containing the styled plot.
     """
     setup_plotting_style()
     fig, ax = create_figure(width, aspect_ratio)
@@ -152,4 +157,115 @@ def plot_nmds(
         sns.scatterplot(data=nmds_coords, x="NMDS1", y="NMDS2", s=100, alpha=0.7, ax=ax)
         style_nmds_plot(ax, title)
 
+    return fig
+
+
+def plot_pca(
+    pca_results: dict[str, Any],
+    experiment: GCMSExperiment,
+    group_col: str = "Caste",
+    title: str | None = None,
+    figsize: tuple[int, int] = (10, 8),
+) -> Figure:
+    """Plot PCA results.
+
+    Args:
+        pca_results: Dictionary containing PCA results and coordinates.
+        experiment: GCMSExperiment instance containing the data.
+        group_col: Column name for grouping. Defaults to "Caste".
+        title: Optional plot title. Defaults to None.
+        figsize: Figure dimensions (width, height). Defaults to (10, 8).
+
+    Returns:
+        Figure: Matplotlib Figure object containing the PCA plot.
+    """
+    fig, ax = plt.subplots(figsize=figsize)
+
+    # Create plot data
+    plot_data = pd.concat(
+        [pca_results["coords"], experiment.metadata_df[[group_col]]], axis=1
+    )
+
+    # Create scatter plot
+    sns.scatterplot(data=plot_data, x="PC1", y="PC2", hue=group_col, alpha=0.7, ax=ax)
+
+    # Add variance explained
+    var_explained = pca_results["explained_variance"]
+    ax.set_xlabel(f"PC1 ({var_explained[0]:.1%} var. explained)")
+    ax.set_ylabel(f"PC2 ({var_explained[1]:.1%} var. explained)")
+
+    if title:
+        ax.set_title(title)
+
+    return fig
+
+
+def plot_lda(
+    lda_results: dict[str, Any],
+    experiment: GCMSExperiment,
+    group_col: str = "Caste",
+    title: str | None = None,
+    figsize: tuple[int, int] = (10, 8),
+) -> Figure:
+    """Plot LDA results.
+
+    Args:
+        lda_results: Dictionary containing LDA results and coordinates.
+        experiment: GCMSExperiment instance containing the data.
+        group_col: Column name for grouping. Defaults to "Caste".
+        title: Optional plot title. Defaults to None.
+        figsize: Figure dimensions (width, height). Defaults to (10, 8).
+
+    Returns:
+        Figure: Matplotlib Figure object containing the LDA plot.
+    """
+    fig, ax = plt.subplots(figsize=figsize)
+
+    # Create plot data
+    plot_data = pd.concat(
+        [lda_results["coords"], experiment.metadata_df[[group_col]]], axis=1
+    )
+
+    # Create scatter plot
+    sns.scatterplot(data=plot_data, x="LD1", y="LD2", hue=group_col, alpha=0.7, ax=ax)
+
+    if title:
+        ax.set_title(title)
+
+    return fig
+
+
+def plot_rf_importance(
+    rf_results: dict[str, Any],
+    n_features: int = 10,
+    title: str | None = None,
+    figsize: tuple[int, int] = (12, 6),
+) -> Figure:
+    """Plot Random Forest feature importance.
+
+    Args:
+        rf_results: Dictionary containing Random Forest results and feature importance.
+        n_features: Number of top features to display. Defaults to 10.
+        title: Optional plot title. Defaults to None.
+        figsize: Figure dimensions (width, height). Defaults to (12, 6).
+
+    Returns:
+        Figure: Matplotlib Figure object containing the feature importance plot.
+    """
+    import matplotlib.pyplot as plt
+
+    fig, ax = plt.subplots(figsize=figsize)
+
+    importance_data = rf_results["feature_importance"].head(n_features)
+
+    ax.bar(importance_data["feature"], importance_data["importance"])
+    plt.xticks(rotation=45, ha="right")
+
+    ax.set_xlabel("Chemical Compound")
+    ax.set_ylabel("Feature Importance")
+
+    if title:
+        ax.set_title(title)
+
+    plt.tight_layout()
     return fig
