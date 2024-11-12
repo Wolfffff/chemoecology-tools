@@ -37,18 +37,3 @@ security-updates:
   dependency-vulnerabilities:
     auto-security-updates-limit:
       - patch
-
-installation:
-  deny:
-    packages:
-      warning-on-any-of:
-        packages: []
-        age-below: "1Y"
-      block-on-any-of:
-        packages: []
-        age-below: "1Y"
-    vulnerabilities:
-      warning-on-any-of:
-        cvss-severity: []
-      block-on-any-of:
-        cvss-severity: []
