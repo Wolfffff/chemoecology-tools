@@ -39,7 +39,6 @@ security-updates:
       - patch
 
 installation:
-  default-action: deny
   audit-logging:
     enabled: true
   allow:
