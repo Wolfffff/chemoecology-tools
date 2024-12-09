@@ -106,7 +106,7 @@ def perform_lda(
     experiment: GCMSExperiment,
     group_col: str = "Caste",
     test_size: float = 0.3,
-    n_components: int = None
+    n_components: int = None,
 ) -> dict[str, Any]:
     """Perform LDA on transformed chemical data.
 
@@ -128,7 +128,7 @@ def perform_lda(
     )
 
     # Fit LDA
-    lda = LinearDiscriminantAnalysis(n_components = n_components)
+    lda = LinearDiscriminantAnalysis(n_components=n_components)
     lda.fit(x_train, y_train)
     y_pred = lda.predict(x_test)
 
