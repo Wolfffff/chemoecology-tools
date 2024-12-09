@@ -54,8 +54,11 @@ def calculate_compositional_stats(
     """
     # Get abundance data
     abund_data = experiment.abundance_df.copy()
-    if chemical_cols is not None:
-        abund_data = abund_data[chemical_cols]
+
+    if chemical_cols is None:
+        chemical_cols = experiment.chemical_cols
+
+    abund_data = abund_data[chemical_cols]
 
     # CLR transform
     clr_transformed = pd.DataFrame(
@@ -103,6 +106,7 @@ def perform_lda(
     experiment: GCMSExperiment,
     group_col: str = "Caste",
     test_size: float = 0.3,
+    n_components: int = None
 ) -> dict[str, Any]:
     """Perform LDA on transformed chemical data.
 
@@ -124,7 +128,7 @@ def perform_lda(
     )
 
     # Fit LDA
-    lda = LinearDiscriminantAnalysis()
+    lda = LinearDiscriminantAnalysis(n_components = n_components)
     lda.fit(x_train, y_train)
     y_pred = lda.predict(x_test)
 
