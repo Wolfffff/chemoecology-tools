@@ -106,7 +106,7 @@ def perform_lda(
     experiment: GCMSExperiment,
     group_col: str = "Caste",
     test_size: float = 0.3,
-    n_components: int = None,
+    n_components: int | None = None,
 ) -> dict[str, Any]:
     """Perform LDA on transformed chemical data.
 
