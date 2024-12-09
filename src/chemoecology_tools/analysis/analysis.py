@@ -115,6 +115,7 @@ def perform_lda(
         experiment: GCMSExperiment instance
         group_col: Column name for grouping variable
         test_size: Proportion of data to use for testing
+        n_components: Number of dimensions to reduce to
 
     Returns:
         dict containing LDA results
